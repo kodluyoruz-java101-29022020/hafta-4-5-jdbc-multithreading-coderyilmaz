@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DbConnection {
+	//kodluyoruz hocanın userName:S9HHYQdP81 , password:7mR2jSrEgT
 
 	private final static String dbHost = "jdbc:mysql://remotemysql.com:3306/S9HHYQdP81?useSSL=false";
 	private final static String userName = "S9HHYQdP81";

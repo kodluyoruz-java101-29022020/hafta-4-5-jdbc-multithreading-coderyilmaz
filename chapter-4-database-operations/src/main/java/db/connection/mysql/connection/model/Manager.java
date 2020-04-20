@@ -22,4 +22,11 @@ public class Manager {
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
+
+	@Override
+	public String toString() {
+		return "Manager \n[EmployeeName=" + employee.getName() +", EmployeeLastName"+employee.getLastName() +", departmentName=" + departmentName + "]";
+	}
+	
+	
 }

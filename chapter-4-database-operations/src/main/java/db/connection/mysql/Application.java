@@ -11,8 +11,10 @@ import db.connection.mysql.connection.dao.DepartmentDAO;
 import db.connection.mysql.connection.dao.EmployeeDAO;
 import db.connection.mysql.connection.dao.ManagerDAO;
 import db.connection.mysql.connection.dao.SalaryDAO;
+import db.connection.mysql.connection.model.Department;
 import db.connection.mysql.connection.model.Employee;
 import db.connection.mysql.connection.model.EmployeeProfile;
+import db.connection.mysql.connection.model.Manager;
 import db.connection.mysql.connection.service.DepartmentService;
 import db.connection.mysql.connection.service.EmployeeService;
 import db.connection.mysql.connection.service.ManagerService;
@@ -73,9 +75,11 @@ public class Application {
 					break;
 				case 7:
 					// burada aktif yöneticileri listeleyen bir fonksiyon yazmalısınız.
+					listActiveManagers(managerService);
 					break;
 				case 8:
 					// burada tüm departmanları listeleyiniz.
+					listDepartments(departmentService);
 					break;
 				case 9:
 					draftEmployeeProfileOperations(employeeService, salaryService);
@@ -212,12 +216,25 @@ public class Application {
 	public static void listActiveManagers(ManagerService managerService) {
 		
 		// Burada ManagerService üzerinden aktif yöneticilerin listesini çekiniz ve ekrana yazdırınız
+		List<Manager> managers = managerService.getActiveManagers();
+		
+		Iterator<Manager> iterator = managers.iterator();
+		while(iterator.hasNext()) {
+			Manager manager = iterator.next();
+		}
+		System.out.println(managers);
 		
 	}
 	
 	public static void listDepartments(DepartmentService departmentService) {
 		
 		// Burada tğm departmanları listeleyen ve ekrana gösteren kodu yazınız.
+		List<Department> departments = departmentService.getAll();
+		Iterator<Department> iterator = departments.iterator();
+		while(iterator.hasNext()) {
+			Department department = iterator.next();
+			System.out.println(department);
+		}
 	}
 	
 	public static void draftEmployeeProfileOperations(EmployeeService employeeService, SalaryService salaryService) {
